@@ -1,0 +1,13 @@
+{
+    "register": "Registreer",
+    "account": "Maak uw account",
+    "firstname": "Voornaam",
+    "name": "Naam",
+    "password": "Paswoord",
+    "confirm": "Bevestig Paswoord",
+    "login": "Inloggen",
+    "welcome": "Welkom",
+    "reset": "Paswoord Vergeten?",
+    "RegisterLink": "Account aanmaken"
+}
+

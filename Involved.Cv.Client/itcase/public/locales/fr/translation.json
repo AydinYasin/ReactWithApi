@@ -1,0 +1,12 @@
+{
+    "register": "S'inscrire",
+    "account": "Créez votre compte",
+    "firstname": "Prénom",
+    "name": "Nom",
+    "password": "Mot de passe",
+    "confirm": "Confirmez le mot de passe",
+    "login": "Se connecter",
+    "welcome": "Bienvenue",
+    "reset": "Mot de passe oublié?",
+    "RegisterLink": "Créer un compte"
+}

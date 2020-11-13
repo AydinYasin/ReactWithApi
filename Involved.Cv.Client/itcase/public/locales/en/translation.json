@@ -1,0 +1,12 @@
+{
+    "register": "Register",
+    "account": "Create your account",
+    "firstname": "Firstname",
+    "name": "Lastname",
+    "password": "Password",
+    "confirm": "Confirm Password",
+    "login": "Login",
+    "welcome": "Welcome",
+    "reset": "Forgot Password?",
+    "RegisterLink": "Create Account"
+}

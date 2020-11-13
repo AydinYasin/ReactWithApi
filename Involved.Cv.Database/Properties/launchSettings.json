@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Involved.Cv.Database": {
+      "commandName": "Project",
+      "commandLineArgs": "-c \"Data Source=DESKTOP-5ULBFK8;Initial Catalog=IT-Case;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False\" -r -s"
+    }
+  }
+}

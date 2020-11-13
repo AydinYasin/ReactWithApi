@@ -1,0 +1,9 @@
+# Don't track content of these folders
+
+# Packages #
+
+*.vs
+
+*bin
+*obj
+*config
