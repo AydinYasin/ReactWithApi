@@ -1,30 +1,51 @@
 
-
-//image settings
-#test1{
-    width: 100%;
-    height: 500px;
-  }
   //preview profil of employee 
   .colom{
     margin: 5px;
+    margin-top: 15px;
   }
+
+  .colom img {
+    border-radius: 5%;
+  }
+
   .row{
-    border:4px red solid;
     margin: 50px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75)
   }
+
   h5{
-  border-bottom: 2px black solid;
+  border-bottom: 1px double;
+  border-width: 3px;
+  color:  #3790de;
   }
+
+  h6{
+    color: #21598a;
+    text-align: center;
+    font-weight: bold;
+  }
+
   p{
-  display: inline-block;
+  text-align: center;
   }
-  .buttonProfile{
-  margin: 10px 0px 10px 60px;
-  }
-  
+
   body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
   }
-  
+
+.colPerson{
+  display: inline-block;
+}
+
+.buttonProfile{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.row-person{
+  border: black 1px solid;
+}

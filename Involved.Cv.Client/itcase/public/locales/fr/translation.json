@@ -8,5 +8,8 @@
     "login": "Se connecter",
     "welcome": "Bienvenue",
     "reset": "Mot de passe oublié?",
-    "RegisterLink": "Créer un compte"
+    "registerLink": "Créer un compte",
+    "subject": "Sujet",
+    "question": "Question",
+    "submit": "Envoyer"
 }

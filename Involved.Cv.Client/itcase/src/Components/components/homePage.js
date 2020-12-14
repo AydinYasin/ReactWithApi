@@ -1,173 +1,81 @@
-import React from 'react';
-import { } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
 import { Col, Row, Container, ProgressBar, Button, DropdownButton, SplitButton, ButtonGroup, Dropdown, InputGroup, Form, type } from 'react-bootstrap';
+import FilterEmployee from './filterEmployee';
+import axios from 'axios'
+import { Grid } from 'react-bootstrap'
+import ReactPaginate from 'react-paginate';
 
 
-function homePage (){
-          return (
+const HomePage = () => {
+     const [persons, setPersons] = useState([])
+     const [currentPage, setCurrentPage] = useState(0);
 
-               <div>
-                    <img src='/main.jpg' alt='Main Image' id="test1"></img>
-                    <div>
-                         <div>
+     useEffect(() => {
+          axios.get(process.env.REACT_APP_URL).then(res => {
+               const persons = res.data;
+               setPersons(persons);
+          })
+     }, [])
 
-                              <div className="mb-2">
-                                   {[DropdownButton].map((DropdownType, idx) => (
-                                        <DropdownType as={ButtonGroup} key={idx} id={`dropdown-button-drop-${idx}`} size="lg" title="Drop large" >
-                                             <Form.Check aria-label="option 1" label=" Junior Developer" />
-                                             <Form.Check aria-label="option 1" label=" Junior Developer" />
-                                             <Form.Check aria-label="option 1" label=" Junior Developer" />
-                                             <Form.Check aria-label="option 1" label=" Junior Developer" />
-                                        </DropdownType>
-                                   ))}
-                              </div>
+     const PER_PAGE = 4;
+     const offset = currentPage * PER_PAGE;
+     const currentPageData = persons.slice(offset, offset + PER_PAGE).map(person =>
+          <Col xs={12} md={6} className="colPerson" >
+               <Row className="row-person">
+                    <Col xs={12} md={12} lg={6} className="dadadada" >
+                         <Col style={{ display: "flex", justifyContent: "center" }}>
+                              <img src='/profile.png' alt='Profile Image' style={{ width: 200, height: 200, display: "block" }} />
+                         </Col>
+                         <Col style={{ display: "flex", justifyContent: "center" }}>
+                              <Button className="buttonProfile" variant="outline-success">Bezoek Profiel</Button>{' '}
+                         </Col>
+                    </Col>
+                    <Col xs={12} md={12} lg={6}>
+                         <h5 style={{ textAlign: "center", paddingTop: "10px" }}>Personal Information</h5>
+                         <h6 style={{ textAlign: "left" }} >Name</h6>
+                         <p style={{ textAlign: "left" }} ><b>{person.firstName} {person.lastName}</b></p>
+                         <h6 style={{ textAlign: "left" }}>Location</h6>
+                         <p style={{ textAlign: "left" }}>{person.township}</p>
+                         <h6 style={{ textAlign: "left" }} >Email</h6>
+                         <p style={{ textAlign: "left" }} >{person.email}</p>
+                         <h6 style={{ textAlign: "left" }}>Keywords</h6>
+                         <p style={{ textAlign: "left" }} >{person.skillOverviews.map(k => k.name + " ")}</p>
+                    </Col>
+               </Row>
+          </Col>
+     );
 
-                         </div>
+     const pageCount = Math.ceil(persons.length / PER_PAGE);
+     console.log(persons.length)
 
+     function handlePageClick({ selected: selectedPage }) {
+          setCurrentPage(selectedPage);
+     }
 
+     return (
+          <div >
+               <FilterEmployee />
 
+     <div style={{ width: "80%", margin: "auto" }} className="parentContainerFluis">
+          <Container fluid className>
+               {currentPageData}
+               <ReactPaginate
+                    previousLabel={"← Previous"}
+                    nextLabel={"Next →"}
+                    pageCount={pageCount}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    previousLinkClassName={"pagination__link"}
+                    nextLinkClassName={"pagination__link"}
+                    disabledClassName={"pagination__link--disabled"}
+                    activeClassName={"pagination__link--active"}
+                    className="PaginateHome"
+               />
+          </Container>
 
+     </div>
+          </div >
 
-                         <div>
-                              <Container>
-                                   <Row xl className="row">
-                                        <Col className='colom'>
-                                             <Col>
-                                                  <img src='/profil.jpg' alt='Profile Image' style={{ width: 250, height: 250 }} />
-                                             </Col>
-                                             <Col>
-                                                  <Button className="buttonProfile" variant="outline-success">Bezoek Profiel</Button>{' '}
-                                             </Col>
-                                        </Col>
-
-                                        <Col className='colom'>
-                                             <h5>Personal Information</h5>
-                                             <p><b>Selim Can Kaygun</b></p>
-                                             <p>29/03/1998</p>
-                                             <p>FRONT-END DEVELOPER</p>
-                                             <p>Antwerpen, Belgium</p>
-                                             <p>selimcan.kaygun@gmail.com</p>
-                                        </Col>
-                                        <Col className='colom'>
-                                             <h5>About</h5>
-                                             <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
-                                        </Col>
-                                        <Col className='colom'>
-                                             <h5>Skills</h5>
-                                             <h6>talen</h6>
-                                             <div>
-                                                  <label>C#</label>
-                                                  <ProgressBar variant="success" now={80} />
-
-                                                  <label>JavaScript</label>
-                                                  <ProgressBar variant="info" now={80} />
-
-                                                  <label>Python</label>
-                                                  <ProgressBar variant="warning" now={60} />
-
-                                                  <label>Java</label>
-                                                  <ProgressBar variant="danger" now={80} />
-                                             </div>
-                                        </Col>
-                                   </Row>
-                              </Container>
-                         </div>
-                         <div>
-                              <Container>
-                                   <Row xl className="row">
-                                        <Col className='colom'>
-                                             <Col>
-                                                  <img src='/profil.jpg' style={{ width: 250, height: 250 }} />
-                                             </Col>
-                                             <Col>
-                                                  <Button className="buttonProfile" variant="outline-success">Bezoek Profiel</Button>{' '}
-                                             </Col>
-                                        </Col>
-
-                                        <Col className='colom'>
-                                             <h5>Personal Information</h5>
-                                             <p><b>Selim Can Kaygun</b></p>
-                                             <p>29/03/1998</p>
-                                             <p>FRONT-END DEVELOPER</p>
-                                             <p>Antwerpen, Belgium</p>
-                                             <p>selimcan.kaygun@gmail.com</p>
-                                        </Col>
-                                        <Col className='colom'>
-                                             <h5>About</h5>
-                                             <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
-                                        </Col>
-                                        <Col className='colom'>
-                                             <h5>Skills</h5>
-                                             <h6>talen</h6>
-                                             <div>
-                                                  <label>C#</label>
-                                                  <ProgressBar variant="success" now={80} />
-
-                                                  <label>JavaScript</label>
-                                                  <ProgressBar variant="info" now={80} />
-
-                                                  <label>Python</label>
-                                                  <ProgressBar variant="warning" now={60} />
-
-                                                  <label>Java</label>
-                                                  <ProgressBar variant="danger" now={80} />
-                                             </div>
-                                        </Col>
-                                   </Row>
-                              </Container>
-                         </div>
-                         <div>
-                              <Container>
-                                   <Row xl className="row">
-                                        <Col className='colom'>
-                                             <Col>
-                                                  <img src='/profil.jpg' style={{ width: 250, height: 250 }} />
-                                             </Col>
-                                             <Col>
-                                                  <Button className="buttonProfile" variant="outline-success">Bezoek Profiel</Button>{' '}
-                                             </Col>
-                                        </Col>
-
-                                        <Col className='colom'>
-                                             <h5>Personal Information</h5>
-                                             <p><b>Selim Can Kaygun</b></p>
-                                             <p>29/03/1998</p>
-                                             <p>FRONT-END DEVELOPER</p>
-                                             <p>Antwerpen, Belgium</p>
-                                             <p>selimcan.kaygun@gmail.com</p>
-                                        </Col>
-                                        <Col className='colom'>
-                                             <h5>About</h5>
-                                             <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
-                                        </Col>
-                                        <Col className='colom'>
-                                             <h5>Skills</h5>
-                                             <h6>talen</h6>
-                                             <div>
-                                                  <label>C#</label>
-                                                  <ProgressBar variant="success" now={80} />
-
-                                                  <label>JavaScript</label>
-                                                  <ProgressBar variant="info" now={80} />
-
-                                                  <label>Python</label>
-                                                  <ProgressBar variant="warning" now={60} />
-
-                                                  <label>Java</label>
-                                                  <ProgressBar variant="danger" now={80} />
-                                             </div>
-                                        </Col>
-                                   </Row>
-                              </Container>
-                         </div>
-
-                    </div>
-
-
-               </div>
-
-
-          );
-
+     );
 }
-export default homePage;
+export default HomePage;

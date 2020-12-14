@@ -1,0 +1,39 @@
+#Label {
+    background-color: white;
+    width: 350px;
+    height: 35px;
+    border-radius: 6px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+#Input {
+    background-color: white;
+    width: 350px;
+    height: 30px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+#Label p {
+    padding-top: 4px;
+    font-family: monospace;
+}
+
+#FormPadding {
+    padding-top: 20px;
+}
+
+#FormGroup {
+    padding: 6px;
+}
+
+#FormContainer {
+    display: block;
+    background-color: white;
+    margin: auto;
+    width: 400px;
+    border: 5px solid #FFFF00;
+    padding: 10px;
+    border-radius: 6px;
+}

@@ -21,6 +21,39 @@ namespace Involved.Cv.Database.Seed
 
             //2 user
             insert.IntoTable("Employee").Row(new { FirstName = "Murat", LastName = "Keklik", Email = "dsds@", BirthDate = new DateTime(1998, 1, 1), Password = "cd", Street = "zuid", StreetNumber = 1, Zipcode = 2018, Township = "Antwerpen", Description = "ABCD", SkillLevelId = 2 });
+            insert.IntoTable("Education").Row(new { Level = "Graduaat", Name = "Programmeren", Description = "2dejaar" });
+            insert.IntoTable("Project").Row(new { Name = "IT-Case", Description = "Project school" });
+            insert.IntoTable("ProgrammingLanguage").Row(new { Name = "C#", Description = "Skill", Skill = "2" });
+            insert.IntoTable("EmployeeEducation").Row(new { EducationId = 1, EmployeeId = 2 });
+            insert.IntoTable("EmployeeProject").Row(new { ProjectId = 1, EmployeeId = 2 });
+            insert.IntoTable("EmployeeProgrammingLanguage").Row(new { ProgrammingLanguageId = 1, EmployeeId = 2 });
+
+            //3 user
+            insert.IntoTable("Employee").Row(new { FirstName = "Yasin", LastName = "Aydin", Email = "dsds@", BirthDate = new DateTime(1998, 1, 1), Password = "cd", Street = "zuid", StreetNumber = 1, Zipcode = 2018, Township = "Antwerpen", Description = "ABCD", SkillLevelId = 2 });
+            insert.IntoTable("Education").Row(new { Level = "Graduaat", Name = "Programmeren", Description = "2dejaar" });
+            insert.IntoTable("Project").Row(new { Name = "IT-Case", Description = "Project school" });
+            insert.IntoTable("ProgrammingLanguage").Row(new { Name = "C#", Description = "Skill", Skill = "2" });
+            insert.IntoTable("EmployeeEducation").Row(new { EducationId = 1, EmployeeId = 3 });
+            insert.IntoTable("EmployeeProject").Row(new { ProjectId = 1, EmployeeId = 3 });
+            insert.IntoTable("EmployeeProgrammingLanguage").Row(new { ProgrammingLanguageId = 1, EmployeeId = 3 });
+
+            //2 user
+            insert.IntoTable("Employee").Row(new { FirstName = "Selim", LastName = "Kaygun", Email = "dsds@", BirthDate = new DateTime(1998, 1, 1), Password = "cd", Street = "zuid", StreetNumber = 1, Zipcode = 2018, Township = "Antwerpen", Description = "ABCD", SkillLevelId = 2 });
+            insert.IntoTable("Education").Row(new { Level = "Graduaat", Name = "Programmeren", Description = "2dejaar" });
+            insert.IntoTable("Project").Row(new { Name = "IT-Case", Description = "Project school" });
+            insert.IntoTable("ProgrammingLanguage").Row(new { Name = "C#", Description = "Skill", Skill = "2" });
+            insert.IntoTable("EmployeeEducation").Row(new { EducationId = 1, EmployeeId = 4 });
+            insert.IntoTable("EmployeeProject").Row(new { ProjectId = 1, EmployeeId = 4 });
+            insert.IntoTable("EmployeeProgrammingLanguage").Row(new { ProgrammingLanguageId = 1, EmployeeId = 4 });
+
+            //2 user
+            insert.IntoTable("Employee").Row(new { FirstName = "Abdurahman ", LastName = "Dundar", Email = "dsds@", BirthDate = new DateTime(1998, 1, 1), Password = "cd", Street = "zuid", StreetNumber = 1, Zipcode = 2018, Township = "Antwerpen", Description = "ABCD", SkillLevelId = 2 });
+            insert.IntoTable("Education").Row(new { Level = "Graduaat", Name = "Programmeren", Description = "2dejaar" });
+            insert.IntoTable("Project").Row(new { Name = "IT-Case", Description = "Project school" });
+            insert.IntoTable("ProgrammingLanguage").Row(new { Name = "C#", Description = "Skill", Skill = "2" });
+            insert.IntoTable("EmployeeEducation").Row(new { EducationId = 1, EmployeeId = 5 });
+            insert.IntoTable("EmployeeProject").Row(new { ProjectId = 1, EmployeeId = 5 });
+            insert.IntoTable("EmployeeProgrammingLanguage").Row(new { ProgrammingLanguageId = 1, EmployeeId = 5 });
         }
     }
 }

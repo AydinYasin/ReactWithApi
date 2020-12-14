@@ -4,7 +4,7 @@ import { } from '@material-ui/core';
 import {useTranslation } from 'react-i18next';
 import { LinkContainer } from 'react-router-bootstrap'
 
-function Register() {
+const Register = () => {
     const { t, i18n } = useTranslation()
     return (
         <div class="wrapper fadeInDown">

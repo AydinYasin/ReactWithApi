@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Involved.Cv.Contracts;
 using Involved.Cv.Contracts.Cv;
@@ -7,10 +8,12 @@ using Involved.Cv.Domain;
 using Involved.Cv.Service.Cv;
 using Involved.Cv.Service.Employee;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Involved.Cv.Host.Controllers
 {
+    [Authorize]
     public class CvController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -19,7 +22,7 @@ namespace Involved.Cv.Host.Controllers
         {
             _mediator = mediator;
         }
-
+        
         [HttpGet]
         [Route("All")]
         public async Task<AllCvOverviewDto> GetAll(CancellationToken cancellationToken)
@@ -30,6 +33,7 @@ namespace Involved.Cv.Host.Controllers
 
             return response.AllCvOverview;
         }
+
         [HttpGet]
         [Route("Detail")]
         public async Task<DetailCvDto> GetDetail(int id ,CancellationToken cancellationToken)

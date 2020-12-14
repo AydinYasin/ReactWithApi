@@ -1,0 +1,17 @@
+.visited:visited{
+    color: white;
+}
+.regis-login-lang-mobiel{
+    display: none;
+}
+@media only screen and (max-width: 767px) {
+  .nav-link-home, .nav-link-contact{
+  border-bottom: 1px solid gray;
+  }
+  .regis-login-lang-desktop{
+      display: none;
+  }
+  .visibleee,.regis-login-lang-mobiel{
+      display: block;
+  }
+  }

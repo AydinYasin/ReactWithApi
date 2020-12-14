@@ -8,6 +8,9 @@
     "login": "Inloggen",
     "welcome": "Welkom",
     "reset": "Paswoord Vergeten?",
-    "RegisterLink": "Account aanmaken"
+    "registerLink": "Account aanmaken",
+    "subject": "Onderwerp",
+    "question": "Vraag",
+    "submit": "Verzenden"
 }
 

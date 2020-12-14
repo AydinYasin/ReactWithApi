@@ -1,4 +1,4 @@
-using Involved.Cv.Host.Infrastructure.Swagger;
+﻿using Involved.Cv.Host.Infrastructure.Swagger;
 using Involved.Cv.Service.Employee;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,10 +7,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Involved.Cv.Infrastructure.EntityFramework;
+using System.Configuration;
 
 using MediatR;
 using AutoMapper;
 using Involved.Cv.Host.Infrastructure.AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Involved.Cv.Host
 {
@@ -45,6 +47,26 @@ namespace Involved.Cv.Host
             services.AddControllers();
             services.AddInvolvedSwagger(Configuration);
 
+
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            }));
+
+
+            //Auth0
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = Configuration["Authority"];
+                options.Audience = Configuration["Audience"];
+            });
+
+            services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,10 +77,15 @@ namespace Involved.Cv.Host
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("MyPolicy");
+
             app.UseInvolvedSwagger(Configuration);
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

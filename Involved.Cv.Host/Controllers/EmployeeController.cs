@@ -6,10 +6,12 @@ using Involved.Cv.Contracts.Employee;
 using Involved.Cv.Domain;
 using Involved.Cv.Service.Employee;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Involved.Cv.Host.Controllers
 {
+    [Authorize]
     public class EmployeeController : ControllerBase
     {
         private readonly IMediator _mediator;
